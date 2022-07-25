@@ -2,7 +2,7 @@
 
 Openapi 3.0 yaml files
 ```sh
-\public\docs\openapi
+/public/docs/openapi
 ```
 
 To run swagger
