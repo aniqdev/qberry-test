@@ -27,8 +27,9 @@ paths:
             application/json: 
               schema: 
                 properties: 
-                  user:
-                    $ref: "../models/User.yaml#/components/schemas/User"
+                  Api-Token:
+                    type: string
+                    example: "hsiOGFUD8&T867T786t"
         422:
           description: 'Error!!!'
           content: 

@@ -12,7 +12,7 @@ info:
 
 servers:
   - url: http://127.0.0.1:8000/api
-    description: 'Локальный сервер'
+    description: 'Local server'
 
 
 paths:

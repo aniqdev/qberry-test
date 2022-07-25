@@ -12,8 +12,20 @@ paths:
             application/json: 
               schema: 
                 properties: 
-                  user:
-                    $ref: "../models/User.yaml#/components/schemas/User"
+                  bookings:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        dateFrom:
+                          type: string
+                          example: 22-10-2022
+                        dateTo:
+                          type: string
+                          example: 27-11-2022
+                        status:
+                          type: string
+                          example: confirmed
         404:
           description: 'Error!!!'
           content: 
