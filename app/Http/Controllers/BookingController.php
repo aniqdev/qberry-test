@@ -35,34 +35,31 @@ class BookingController extends Controller
      */
     public function store(Request $request)
     {
-            $table->string('email');
-            $table->string('phone');
-            $table->bigInteger('location_id');
-            $table->integer('volume');
-            $table->integer('tamperature');
-            $table->date('date_from');
-            $table->date('date_to');
-
         $rules = [
-            'cityId' => 'required|integer',
+            'email' => 'required|email',
+            'phone' => 'required',
+            'location_id' => 'required',
+            'volume' => 'required',
+            'tamperature' => 'required',
+            'date_from' => 'required',
+            'date_to' => 'required',
         ];
 
-        $messages = [
-            'cityId.required' => 'cityId is required',
-        ];
-
-        $validator = validator($request->all(), $rules, $messages);
+        $validator = validator($request->all(), $rules);
 
         if($validator->fails()){
-            return $this->json([
-                'status' => 'error',
+            return response()->json([
                 'message' => implode(', ', $validator->messages()->all()),
-                'errors' => $validator->messages()->all(),
             ], 400);
         }
 
         $data = $validator->validated(); // to use auth()->user() / null if login failed
 
+        Booking::create($data);
+
+        return [
+            'message' => 'Thanks for reservation. Details was sent to email.',
+        ];
     }
 
     /**

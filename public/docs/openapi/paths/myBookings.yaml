@@ -34,4 +34,4 @@ paths:
                 properties: 
                   message:
                     type: string
-                    example: "User not found"
+                    example: "Not found"

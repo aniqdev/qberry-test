@@ -11,6 +11,12 @@ paths:
           application/json:
             schema: 
               properties: 
+                email:
+                  type: string
+                  example: 'exampl@gmail.com'
+                phone:
+                  type: string
+                  example: '+4805164974'
                 location:
                   type: integer
                   example: 4
@@ -37,7 +43,7 @@ paths:
                   message:
                     type: string
                     example: 'Thanks for reservation. Details was sent to email.'
-        422:
+        400:
           description: 'Error!!!'
           content: 
             application/json: 
