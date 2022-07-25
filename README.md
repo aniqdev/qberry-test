@@ -12,3 +12,4 @@ cd /qberry-test
 php artisan serve
 ```
 then run [http://127.0.0.1:8000/docs/swagger/](http://127.0.0.1:8000/docs/swagger/)
+	or [http://127.0.0.1:8000/docs/redoc/](http://127.0.0.1:8000/docs/redoc/)
