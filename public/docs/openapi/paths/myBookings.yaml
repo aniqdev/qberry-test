@@ -1,0 +1,25 @@
+paths:
+  myBookings:
+    get: 
+      operationId: 'myBookings'
+      summary: 'Get bookings info'
+      tags: 
+        -  User
+      responses: 
+        200: 
+          description: 'Success!'
+          content: 
+            application/json: 
+              schema: 
+                properties: 
+                  user:
+                    $ref: "../models/User.yaml#/components/schemas/User"
+        404:
+          description: 'Error!!!'
+          content: 
+            application/json: 
+              schema: 
+                properties: 
+                  message:
+                    type: string
+                    example: "User not found"

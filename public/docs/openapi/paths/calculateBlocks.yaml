@@ -1,0 +1,63 @@
+paths:
+  calculateBlocks:
+    get: 
+      operationId: 'calculate'
+      summary: 'Calculate blocks price'
+      security: []
+      tags: 
+        -  Blocks
+      parameters:
+        - name: location 
+          in: query
+          description: location Id
+          schema:
+            type: integer
+        - name: volume
+          in: query
+          description: volume of products, m3
+          schema:
+            type: integer
+        - name: temperature
+          in: query
+          description: temperature
+          schema:
+            type: integer
+        - name: dateFrom
+          in: query
+          description: date from
+          schema:
+            type: string
+        - name: dateTo
+          in: query
+          description: date to
+          schema:
+            type: string
+
+      responses: 
+        200: 
+          description: 'Success!'
+          content: 
+            application/json: 
+              schema: 
+                properties: 
+                  blocksNeede:
+                    type: integer
+                    example: 12
+                  price:
+                    type: integer
+                    example: 2560
+                  availability:
+                    type: boolean
+                    example: false
+                  advise:
+                    type: string
+                    example: "avalavle location is: Портленд (Орегон), Торонто, Шанхай"
+        422:
+          description: 'Error!!!'
+          content: 
+            application/json: 
+              schema: 
+                properties: 
+                  message:
+                    type: string
+                    example: "Please choose correct date"

@@ -1,0 +1,50 @@
+paths:
+  loginRoute:
+    post: 
+      operationId: 'login'
+      summary: "Get API token"
+      tags: 
+        -  'Auth'
+      security: []
+      requestBody: 
+        content: 
+          application/json:
+            schema: 
+              properties: 
+                email:
+                  type: string
+                  example: 'test@test.com'
+                password:
+                  type: string
+                  example: 'qweQWE123'
+      responses: 
+        200: 
+          headers: 
+            Api-Token:
+              $ref: "../api.yml#/components/headers/Api-Token"
+          description: 'Success!'
+          content: 
+            application/json: 
+              schema: 
+                properties: 
+                  user:
+                    $ref: "../models/User.yaml#/components/schemas/User"
+        422:
+          description: 'Error!!!'
+          content: 
+            application/json: 
+              schema: 
+                properties: 
+                  errors:
+                    type: object
+                    properties: 
+                      email:
+                        type: array
+                        items: 
+                          type: string
+                          example: 'Wron email'
+                      password:
+                        type: array
+                        items: 
+                          type: string
+                          example: 'Wron password'

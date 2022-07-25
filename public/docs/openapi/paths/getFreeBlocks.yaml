@@ -1,0 +1,41 @@
+paths:
+  getFreeBlocks:
+    get:
+      operationId: getFreeBlocks
+      summary: "Get free blocks"
+      tags: 
+        -  Blocks
+      security: []
+      responses: 
+        200: 
+          description: Success
+          content: 
+            application/json: 
+              schema: 
+                properties:
+                  freeBlocks:
+                    type: array
+                    items: 
+                      type: object
+                      properties: 
+                        location1:
+                          type: integer
+                          example: 80
+                        location2:
+                          type: integer
+                          example: 125
+                        location3:
+                          type: integer
+                          example: 160
+                        location4:
+                          type: integer
+                          example: 80
+                        location5:
+                          type: integer
+                          example: 125
+                        location6:
+                          type: integer
+                          example: 160
+
+        400:
+          description: Error

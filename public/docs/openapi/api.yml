@@ -1,0 +1,49 @@
+openapi: 3.0.1
+
+
+info:
+  version: 1.0.0
+  title: 'Web practice API'
+  description: 'Desc'
+  license: 
+    name: ''
+    url: 's'
+    
+
+servers:
+  - url: http://127.0.0.1:8000/api
+    description: 'Локальный сервер'
+
+
+paths:
+  /auth/login:
+    $ref: "./paths/login.yaml#/paths/loginRoute"
+       
+  /user/myBookings:
+    $ref: ./paths/myBookings.yaml#/paths/myBookings
+
+  /blocks/free:
+    $ref: ./paths/getFreeBlocks.yaml#/paths/getFreeBlocks   
+    
+  /blocks/calculate:
+    $ref: ./paths/calculateBlocks.yaml#/paths/calculateBlocks
+
+  /blocks/book:
+    $ref: "./paths/bookBlocks.yaml#/paths/bookBlocks"
+
+
+components:
+  headers:
+    Api-Token:
+      description: 'JWT токен'
+      schema:
+        type: string
+        example: "hsiOGFUD8&T867T786t"
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+security:
+  - bearerAuth: []

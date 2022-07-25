@@ -1,0 +1,48 @@
+paths:
+  bookBlocks:
+    post:
+      operationId: 'bookBlocks'
+      summary: "Book blocks"
+      tags: 
+        -  'Blocks'
+      security: []
+      requestBody: 
+        content: 
+          application/json:
+            schema: 
+              properties: 
+                location:
+                  type: integer
+                  example: 4
+                volume:
+                  type: integer
+                  description: 'amount of products, m3'
+                  example: 50
+                temperature:
+                  type: integer
+                  example: -5
+                dateFrom:
+                  type: string
+                  example: 25-09-2022
+                dateTo:
+                  type: string
+                  example: 24-10-2022
+      responses: 
+        200: 
+          description: 'Success!'
+          content: 
+            application/json: 
+              schema: 
+                properties: 
+                  message:
+                    type: string
+                    example: 'Thanks for reservation. Details was sent to email.'
+        422:
+          description: 'Error!!!'
+          content: 
+            application/json: 
+              schema: 
+                properties: 
+                  message:
+                    type: string
+                    example: "Thomething went wrong"
