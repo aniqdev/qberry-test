@@ -36,11 +36,11 @@ class BookingController extends Controller
     public function store(Request $request)
     {
         $rules = [
-            'email' => 'required|email',
-            'phone' => 'required',
-            'location_id' => 'required',
-            'volume' => 'required',
-            'tamperature' => 'required',
+            'email' => 'required|email|max:255',
+            'phone' => 'string|max:255',
+            'location_id' => 'required|integer',
+            'volume' => 'required|integer',
+            'tamperature' => 'required|integer|max:0',
             'date_from' => 'required',
             'date_to' => 'required',
         ];
@@ -53,7 +53,7 @@ class BookingController extends Controller
             ], 400);
         }
 
-        $data = $validator->validated(); // to use auth()->user() / null if login failed
+        $data = $validator->validated();
 
         Booking::create($data);
 
